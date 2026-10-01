@@ -87,7 +87,7 @@ Built with [Astro](https://astro.build) v7 (static site generator), styled with 
 - Dark theme (black background, white text) with CSS custom properties for the color palette (`--background`, `--accents-1` through `--accents-8`, `--text-primary`).
 
 ### Analytics (3 services)
-1. **Google Tag Manager** — `GA.astro` (inline script, GTM ID currently hardcoded as `GTM-KP4SRMMP` despite `PUBLIC_GTM_ID` env var existing).
+1. **Google Tag Manager** — `GA.astro` reads `PUBLIC_GTM_ID`. The snippet is omitted when it is empty.
 2. **PostHog** — `Posthog.astro` (client-side init, runs only in production via `import.meta.env.PROD`).
 3. **Partytown** — Astro integration (`@astrojs/partytown`) for offloading GTM to a web worker.
 
@@ -179,8 +179,6 @@ Each file generates its own page at `/projects/<filename-without-ext>/`.
 1. **Content is placeholder** — Both project Markdown files contain boilerplate "Hi there!" text. Needs real portfolio content.
 2. **No sitemap or RSS** — Consider adding `@astrojs/sitemap` for SEO.
 3. **No image optimization** — No `@astrojs/image` integration; project images in Markdown won't be optimized.
-4. **PostHog key is hardcoded** — `phc_dGluPpkr5dSplv8C74Qxpwx6wYyzeuDi5jGv4HWeVAo` is baked into `Posthog.astro`. Consider moving to env var.
-5. **GTM env var** is `PUBLIC_GTM_ID` but GA.astro hardcodes `GTM-KP4SRMMP` — `.env` exists with a real value but is unused.
-6. **No Open Graph / social share tags** — BaseLayout could benefit from OG meta for social sharing.
-7. **`Card.astro` component has unused CSS** — defines `.card` class styles but PostCard.astro duplicates similar styles (could refactor into shared).
-8. **Marquee triple-render** — `Marquees.astro` renders `<slot />` 3× for seamless loop; if content is heavy this multiplies DOM size.
+4. **No Open Graph / social share tags** — BaseLayout could benefit from OG meta for social sharing.
+5. **`Card.astro` component has unused CSS** — defines `.card` class styles but PostCard.astro duplicates similar styles (could refactor into shared).
+6. **Marquee triple-render** — `Marquees.astro` renders `<slot />` 3× for seamless loop; if content is heavy this multiplies DOM size.
