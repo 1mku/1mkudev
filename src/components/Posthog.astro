@@ -1,9 +1,15 @@
 <script>
     import posthog from 'posthog-js';
-    if (import.meta.env.PROD) {
-        posthog.init('phc_dGluPpkr5dSplv8C74Qxpwx6wYyzeuDi5jGv4HWeVAo', {
-            api_host: 'https://eu.i.posthog.com',
-            person_profiles: 'always', // or 'always' to create profiles for anonymous users as well
+    import type { ConfigDefaults } from 'posthog-js';
+
+    const apiKey = import.meta.env.PUBLIC_POSTHOG_KEY;
+    const apiHost = import.meta.env.PUBLIC_POSTHOG_HOST;
+    const defaults = import.meta.env.PUBLIC_POSTHOG_DEFAULTS;
+
+    if (import.meta.env.PROD && apiKey && apiHost && defaults) {
+        posthog.init(apiKey, {
+            api_host: apiHost,
+            defaults: defaults as ConfigDefaults,
         });
     }
 </script>
