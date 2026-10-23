@@ -9,7 +9,6 @@ const directives = [
     "worker-src 'self' blob: data:",
 ];
 const csp = directives.join('; ');
-
 ---
 
 <meta http-equiv="Content-Security-Policy" content={csp} />
