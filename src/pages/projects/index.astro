@@ -9,15 +9,13 @@ type ProjectEntry = (typeof projects)[number];
 ---
 
 <BaseLayout title={title}>
-    <main class="root">
-        <div class="content">
-            <div class="grid">
-                {projects.map((p: ProjectEntry) => (
-                    <PostCard title={p.data.title} href={`/projects/${p.id}`} />
-                ))}
-            </div>
-        </div>
-    </main>
+    <div class="content">
+        <ul class="grid">
+            {projects.map((p: ProjectEntry) => (
+                <PostCard title={p.data.title} href={`/projects/${p.id}`} />
+            ))}
+        </ul>
+    </div>
 </BaseLayout>
 
 <style>
