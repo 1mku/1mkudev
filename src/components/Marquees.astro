@@ -1,15 +1,17 @@
 <div class="marquee">
-    <div class="content scroll">
+    <div class="group">
         <slot />
-        <slot />
+    </div>
+    <div class="group" aria-hidden="true">
         <slot />
     </div>
 </div>
 
 <style>
     .marquee {
+        --gap: 1rem;
         width: 100%;
-        grid-column-gap: 1rem;
+        gap: var(--gap);
         background-color: transparent;
         margin-bottom: 1rem;
         padding-top: 2rem;
@@ -26,20 +28,30 @@
         );
     }
 
-    .content {
+    .group {
+        flex-shrink: 0;
         min-width: 100%;
-        grid-column-gap: 1rem;
+        gap: var(--gap);
         display: flex;
-    }
-    .scroll {
         animation: scroll 20s linear infinite;
     }
+
     @keyframes scroll {
-        0% {
-            transform: translateX(0%);
+        to {
+            transform: translateX(calc(-100% - var(--gap)));
         }
-        100% {
-            transform: translateX(-100%);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        .marquee {
+            overflow-x: auto;
+            mask-image: none;
+        }
+        .group {
+            animation: none;
+        }
+        .group[aria-hidden] {
+            display: none;
         }
     }
 </style>
