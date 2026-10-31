@@ -14,12 +14,12 @@
         "tsc": "tsc --noEmit"
     },
     "dependencies": {
-        "@astrojs/check": "0.9.10",
-        "@astrojs/partytown": "2.1.7",
+        "@astrojs/check": "0.9.12",
+        "@astrojs/partytown": "2.1.9",
         "@astrojs/sitemap": "3.7.4",
-        "@astrojs/ts-plugin": "1.10.11",
+        "@astrojs/ts-plugin": "1.10.12",
         "@tailwindcss/vite": "4.3.3",
-        "astro": "7.3.2",
+        "astro": "7.4.5",
         "astro-portabletext": "1.0.0",
         "posthog-js": "1.430.3",
         "tailwindcss": "4.3.3"
