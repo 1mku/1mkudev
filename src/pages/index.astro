@@ -13,7 +13,7 @@ const title = "Hello, I'm Mike!";
         <div class="tagline">Full-Stack Developer</div>
         <div class="emoji">💻</div>
         <div class="icons-social">
-            <a target="_blank" href="https://www.linkedin.com/in/mykhailo-kushchov/">
+            <a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/mykhailo-kushchov/">
                 <i
                     class="fa-brands fa-linkedin"
                     aria-hidden="true"
@@ -21,7 +21,7 @@ const title = "Hello, I'm Mike!";
                 ></i>
                 <span class="sr-only">LinkedIn</span>
             </a>
-            <a target="_blank" href="https://github.com/1mku">
+            <a target="_blank" rel="noopener noreferrer" href="https://github.com/1mku">
                 <i
                     class="fa-brands fa-github"
                     aria-hidden="true"
@@ -54,11 +54,21 @@ const title = "Hello, I'm Mike!";
     }
 
     .icons-social i {
-        font-size: 2rem;
+        font-size: 2.75rem;
         padding: 10px;
     }
 
     .icons-social a {
+        display: inline-block;
         text-decoration: none;
+        transition:
+            transform 0.15s,
+            opacity 0.15s;
+    }
+
+    .icons-social a:hover,
+    .icons-social a:focus-visible {
+        opacity: 0.7;
+        transform: translateY(-2px);
     }
 </style>
