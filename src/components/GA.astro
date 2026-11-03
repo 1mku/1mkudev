@@ -2,7 +2,7 @@
 const gtmId = import.meta.env.PUBLIC_GTM_ID;
 ---
 
-{gtmId && <script is:inline define:vars={{ gtmId }}>
+{gtmId && <script type="text/partytown" is:inline define:vars={{ gtmId }}>
     /* eslint-disable no-var */
     (function (w, d, s, l, i) {
         w[l] = w[l] || [];
