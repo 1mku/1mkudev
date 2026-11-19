@@ -10,7 +10,7 @@ const title = "Hello, I'm Mike!";
 <BaseLayout title={title}>
     <Card>
         <div class="intro">Hello, I'm&nbsp;Mike!</div>
-        <div class="tagline">Full-Stack Developer</div>
+        <div class="tagline">Full-Stack Software Engineer</div>
         <div class="emoji">💻</div>
         <div class="icons-social">
             <a
@@ -59,6 +59,8 @@ const title = "Hello, I'm Mike!";
 
     .emoji {
         font-size: 2rem;
+        /* icons have 10px padding, so subtract it to match the 1.5rem gaps */
+        margin-bottom: calc(1.5rem - 10px);
     }
 
     .icons-social i {
